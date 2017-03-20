@@ -1,0 +1,63 @@
+<div class="col-md-12">
+<blockquote class="layui-elem-quote">
+    <button class="btn" ng-click="back()"> 
+        返回
+    </button>
+    
+    <button class="btn btn-warning" ng-click="onSelectPage()"> 
+        过期的资源
+        <span class="badge" >{{resourceAll.length}}</span>
+    </button>
+</blockquote>
+</div>
+<div class="col-md-12">
+    <table class="layui-table" lay-even>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>URL</th>
+                <th>TYPE</th>
+                <th>CLASS_METHOD</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="row in resourceAll">
+            <tr>
+                <td>{{row.title}}</td>
+                <td>{{row.url}}</td>
+                <td>{{row.type}}</td>
+                <td>{{row.classMethod}}</td>
+                <td>
+                    <button class="btn btn-sm btn-dangers" ng-click="deleteConfirm(row.id)"><i class="fa fa-unlink">发布</i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="col-sm-4 col-sm-offset-4">
+    <a class="btn btn-primary" ng-click="back()">返回</a>
+</div>
+
+
+
+<!-- 消息对话框 -->
+<div class="modal fade" id="messagebox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">是否确认删除该条记录？</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sub btn-save" id="delete">确定</button>
+                <button type="button" class="btn btn-sub btn-grey" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

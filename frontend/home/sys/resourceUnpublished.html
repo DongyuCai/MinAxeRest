@@ -1,0 +1,92 @@
+<div class="col-md-12">
+<blockquote class="layui-elem-quote">
+    <button class="btn" ng-click="back()"> 
+        返回
+    </button>
+    
+    <button class="btn btn-warning" ng-click="onSelectPage()"> 
+        待发布的资源
+        <span class="badge" >{{resourceAll.length}}</span>
+    </button>
+
+</blockquote>
+</div>
+
+<div class="col-md-12">
+    <table class="layui-table" lay-even>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>URL</th>
+                <th>TYPE</th>
+                <th>CLASS_METHOD</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="row in resourceAll">
+            <tr>
+                <td>{{row.title}}</td>
+                <td>{{row.url}}</td>
+                <td>{{row.type}}</td>
+                <td>{{row.classMethod}}</td>
+                <td>
+                    <button class="btn btn-sm btn-dangers" ng-click="showAddInfo(row)"><i class="fa fa-unlink">发布</i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="col-sm-4 col-sm-offset-4">
+    <button class="btn btn-primary" ng-click="back()">返回</button>
+</div>
+
+
+<!-- 新增 -->
+<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="addInfoLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h4 class="modal-title" id="adrangeInfoLabel">发布资源-(带*号必填)</h4>
+            </div>
+            <form class="form-horizontal" id="inputBannerForm" name="inputBannerForm" novalidate>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="name">标题*：</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control"  ng-model="resource.title" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="name">URL*：</label>
+                        <div class="col-lg-9" style="padding-top: 8px;padding-bottom: 8px;padding-left: 15px;" >
+                            {{resource.url}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="name">TYPE*：</label>
+                        <div class="col-lg-9" style="padding-top: 8px;padding-bottom: 8px;padding-left: 15px;" >
+                            {{resource.type}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-3" for="role">类方法*：</label>
+                        <div class="col-lg-9" style="padding-top: 8px;padding-bottom: 8px;padding-left: 15px;" >
+                            {{resource.classMethod}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sub btn-grey" data-dismiss="modal">关闭</button>
+                    <button id="save_button" name="search" type="button" class="btn btn-sub btn-save" ng-disabled="saveInvalid()" ng-click="save()">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

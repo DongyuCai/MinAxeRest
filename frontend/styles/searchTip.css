@@ -1,0 +1,5 @@
+ul,ol,li{margin:0;padding:0;} 
+.autoDis{border:1px solid #999;position:absolute;overflow:hidden;} 
+.autoDis p{line-height:25px;cursor:default;padding:0 5px;} 
+.autoDis li{line-height:25px;cursor:default;padding:0 5px;background-color:#fff;} 
+.autoDis .cur{background:#ccc;} 

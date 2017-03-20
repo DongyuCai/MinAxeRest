@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html xmlns:ng="http://angularjs.org" id="LoginApp" ng-app="LoginApp">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>义博事联运营平台</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!-- build:csses styles/botss.min.css -->
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="js/layui-v1.0.7/layui/css/layui.css">
+<!-- endbuild -->
+<!--[if lte IE 7]>
+<script src="js/common/json2.js"></script>
+<![endif]-->
+<!--[if lte IE 8]>
+	<script>
+    	document.createElement('ng-include');
+    	document.createElement('ng-pluralize');
+    	document.createElement('ng-view');
+		// Optionally these for CSS
+		document.createElement('ng:include');
+		document.createElement('ng:pluralize');
+		document.createElement('ng:view');
+  </script>
+					<![endif]-->
+<!--[if lte IE 9]>
+<script src="bootstrap/js/respond.min.js"></script>
+<script src="bootstrap/js/html5.js"></script>
+<![endif]-->
+
+</head>
+<body>
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,textarea,th,td{margin:0;padding:0}body,button,input,select,textarea{font:12px/1.5 "Microsoft YaHei",NSimSun,sans-serif}input{border:none;padding:0;margin:0;background:none}html{overflow:hidden}html,body{height:100%;background:#50bfe2 url("images/login-bg.jpg") no-repeat fixed;background-size:cover;width:100%;height:100%}.login{height:100%}.radio,.checkbox{display:block;min-height:20px;margin-top:10px;margin-bottom:10px;padding-left:20px}.pull-right{float:right!important;margin-right:20px;margin-top:-20px\9}.radio input[type=radio],.radio-inline input[type=radio],.checkbox input[type=checkbox],.checkbox-inline input[type=checkbox]{float:left;margin-left:-20px}input[type=radio],input[type=checkbox]{margin:4px 0 0;margin-top:1px \9;line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input:focus{outline:none}@media (min-width:1200px)
+.container{width:1170px}@media (min-width:992px)
+.container{width:970px}@media (min-width:768px)
+.container{width:750px}.container{margin-right:auto;margin-left:auto;padding-left:15px;padding-right:15px}input.Cur{color:#16aad8}.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.btn-block{display:block;width:100%;padding-left:0;padding-right:0}.btn-lg,.btn-group-lg>.btn{padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.btn{display:inline-block;margin-bottom:0;font-weight:400;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:6px 12px;font-size:14px;line-height:1.42857143;border-radius:4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.login-body{background:#65cea7  no-repeat fixed;background-size:cover;width:100%;height:100%}.form-signin{max-width:330px;margin:100px auto;background:#fff;border-radius:5px;-webkit-border-radius:5px}.form-signin .form-signin-heading{margin:0;padding:25px 15px;text-align:center;color:#fff;position:relative}.sign-title{font-size:24px;color:#fff;position:absolute;top:-60px;left:0;text-align:center;width:100%;text-transform:uppercase}.form-signin .checkbox{margin-bottom:14px;font-size:13px}.form-signin .checkbox{font-weight:normal;color:#fff;font-weight:normal;font-family:'Open Sans',sans-serif;position:absolute;bottom:-50px;width:100%;left:0}.form-signin .checkbox a,.form-signin .checkbox a:hover{color:#fff}.form-signin .form-control{position:relative;font-size:16px;height:auto;padding:10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.form-signin .form-control:focus{z-index:2;border:1px solid #16aad8}.form-signin input[type="text"],.form-signin input[type="password"]{margin-bottom:15px;border-radius:5px;-webkit-border-radius:5px;border:1px solid #eaeaec;background:#eaeaec;box-shadow:none;font-size:12px}.form-signin .btn-login{background:#50bfe2;color:#fff;text-transform:uppercase;font-weight:normal;font-family:'Open Sans',sans-serif;margin:20px 0 5px;padding:5px;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s;font-size:30px;font-size:24px\9;width:280px\9}.form-signin .btn-login:hover{background:#16aad8;-webkit-transition:all 0.3s;-moz-transition:all 0.3s;transition:all 0.3s}.form-signin p{text-align:left;color:#50bfe2;font-size:16px;font-weight:normal}.form-signin a,.form-signin a:hover{color:#16aad8}.form-signin a:hover{text-decoration:underline}.login-wrap{padding:20px;position:relative;width:260px\9}.registration{color:#c7c7c7;text-align:center;margin-top:15px}.copyRight{position:absolute;width:400px;left:50%;margin-left:-200px;text-align:center;height:32px;bottom:0}.copyRight span{margin-right:10px;color:#fff}
+</style>
+<div ng-controller="loginCtrl">
+<div class="login">
+    <div class="container">
+       <form id="form" class="form-signin" method="post" novalidate>
+        <div class="form-signin-heading text-center">
+          <h1 class="sign-title">义博事连运营平台</h1>
+          <img src="images/logo1.png" alt=""></div>
+        <div class="login-wrap">
+            <input id="username" type="text" class="form-control" placeholder="登录名" ng-model="username">
+            <input type="password" class="form-control" placeholder="密码" ng-model="password">
+            <label style="width: 100%" >
+              <table><tr>
+                <td><input id="code" class="form-control" type="text" placeholder="验证码" ng-model="code"></td>
+                <td>&nbsp;</td>
+                <td><img style="margin-bottom: 15px;" ng-src="{{codeUrl+codeTime}}" alt="" ng-click="changeCodeTime()" ></td>
+              </tr></table>
+            </label>
+            <button type="submit" id="login-submit-btn" data-loading-text="正在登录..." class="btn btn-lg btn-login btn-block" ng-click="goLogin()" ng-disabled="loginInvalid()"  >登录</button>
+            <label class="checkbox">
+               <input type="checkbox"  ng-model="saveLogin">
+              自动登录一周
+            </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="copyRight">
+      <span>&copy;</span>
+      <span>2016</span>
+      <span>义博事连网络有限公司版权所有</span>
+    </div>
+  </div>
+ </div>
+</body>
+
+</html>
+<!-- build:angularlibs js/applogin/angularlibs.js -->
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="js/jquery/button.js"></script>
+<script src="js/jquery/jquery.form.js"></script>
+<script src="js/layui-v1.0.7/layui/lay/dest/layui.all.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+<script src="bower_components/restangular/dist/restangular.min.js"></script>
+<script src="js/appMain/base.js"></script>
+<script src="js/common/md5.js"></script>
+<script src="login.js"></script>
+<!-- endbuild -->

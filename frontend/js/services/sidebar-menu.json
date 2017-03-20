@@ -1,0 +1,14 @@
+[{
+  "name": "系统管理",
+  "icon": "fa fa-cogs",
+  "submenu": [{
+    "name": "用户管理",
+    "sref": "user"
+  }, {
+    "name": "角色管理",
+    "sref": "role"
+  }, {
+    "name": "资源管理",
+    "sref": "resource"
+  }]
+}]

@@ -1,0 +1,11 @@
+.invalid-error{
+	box-sizing: border-box;
+	color: rgb(185, 74, 72);
+	direction: ltr;
+	display: block;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 5px;
+}

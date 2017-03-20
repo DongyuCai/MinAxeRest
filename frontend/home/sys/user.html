@@ -1,0 +1,102 @@
+<div id="toolbar" style="margin-bottom: 5px;">
+    <button class="btn btn-warning btn-sm" ng-click="showAddInfo()"> <i class="glyphicon glyphicon-plus"></i>
+        新增用户
+    </button>
+</div>
+<div id="searchbar" class="widget-box detail-top">
+    <table class="search-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left" width="136" height="34">登录名：</td>
+            <td align="left" width="136" >
+               <input placeholder="登录名" type="text" class="form-control" style="width: 400px" ng-model="username" >
+            </td>
+            <td><button class="btn btn-info" ng-click="onSelectPage(1)"> <i class="fa fa-search"></i></button></td>
+        </tr>
+        <tr>
+            <td align="left" width="136" height="34">角色：</td>
+            <td align="left" width="136" >
+                <a id="status_" name='status_a' ng-click="selectStatus('')" style="cursor:pointer" class="selected">全部</a>
+                <a id="status_{{status.id}}" name='status_a' ng-click="selectStatus(status.id)" style="cursor:pointer" ng-repeat="status in roleAll" >{{status.name}}</a>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div class="container-fluid">
+    <div gridheightresize class="table-uigrid" ui-grid-pagination  ui-grid-auto-resize ui-grid-resize-columns ui-grid="gridOptions"></div>
+</div>
+
+
+<!-- 新增 -->
+<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="addInfoLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content" >
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h4 ng-if="currentOpt=='add'" class="modal-title" id="adrangeInfoLabel">添加用户-(带*号必填)</h4>
+                <h4 ng-if="currentOpt=='edit4role'" class="modal-title" id="adrangeInfoLabel">修改角色-(带*号必填)</h4>
+                <h4 ng-if="currentOpt=='edit4password'" class="modal-title" id="adrangeInfoLabel">重置密码-(带*号必填)</h4>
+            </div>
+            <form class="form-horizontal" id="inputBannerForm" name="inputBannerForm" novalidate>
+                <div class="modal-body">
+					<div class="form-group">
+						<label class="control-label col-lg-2" for="name">登录名*：</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control"  ng-model="user.username" ng-disabled="currentOpt!='add'"  required>
+						</div>
+					</div>
+                    <div ng-if="currentOpt=='edit4password'" class="form-group">
+                        <label class="control-label col-lg-2" for="name">旧密码*：</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control"  ng-model="user.oldPassword"  required>
+                        </div>
+                    </div>
+                    <div ng-if="currentOpt=='add' || currentOpt=='edit4password'" class="form-group">
+                        <label class="control-label col-lg-2" for="name">密码*：</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control"  ng-model="user.password"  required>
+                        </div>
+                    </div>
+					<div ng-if="currentOpt=='add' || currentOpt=='edit4role'" class="form-group">
+						<label class="control-label col-lg-2" for="role">角色*：</label>
+						<div class="col-lg-10" style="padding-top: 8px;padding-bottom: 8px;padding-left: 15px;" >
+							<label ng-repeat=" role in roleAll" style="overflow:hidden;white-space:nowrap;word-break:keep-all;">
+								<input type="checkbox" name="checkbox_role" value="{{role.id}}" ng-checked="roleIds.indexOf(','+role.id+',') >= 0" ng-click="refreshRoleSelect()"  />
+								{{role.name}}&nbsp;
+							</label>
+						</div>
+					</div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sub btn-grey" data-dismiss="modal">关闭</button>
+                    <button id="save_button" name="search" type="button" class="btn btn-sub btn-save" ng-disabled="saveInvalid()" ng-click="save()">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 消息对话框 -->
+<div class="modal fade" id="messagebox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">是否确认删除该条记录？</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sub btn-save" id="delete">确定</button>
+                <button type="button" class="btn btn-sub btn-grey" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

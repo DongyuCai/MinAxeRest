@@ -10,7 +10,7 @@ import org.axe.bean.persistence.Page;
 import org.axe.bean.persistence.PageConfig;
 import org.axe.exception.RestException;
 import org.axe.util.CollectionUtil;
-import org.eclipse.jetty.util.StringUtil;
+import org.axe.util.StringUtil;
 
 import com.jeeba.sys.entity.Resource;
 import com.jeeba.sys.repository.ResourceDao;
@@ -75,10 +75,10 @@ public class ResourceService {
 
 	public HashMap<String,Object> page(int pageNum, int pageSize, String keywords, String type) {
 		StringBuilder append = new StringBuilder();
-		if(StringUtil.isNotBlank(keywords)){
+		if(StringUtil.isNotEmpty(keywords)){
 			append.append(" and keywords like '%"+keywords+"%'");
 		}
-		if(StringUtil.isNotBlank(type)){
+		if(StringUtil.isNotEmpty(type)){
 			append.append(" and type = '"+type+"'");
 		}
 		

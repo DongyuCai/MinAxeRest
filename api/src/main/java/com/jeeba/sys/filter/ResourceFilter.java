@@ -36,7 +36,7 @@ public class ResourceFilter implements Filter {
 
 	@Override
 	public int setLevel() {
-		return 3;
+		return 4;
 	}
 
 	@Override

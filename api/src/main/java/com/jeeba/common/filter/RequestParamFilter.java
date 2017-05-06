@@ -32,7 +32,7 @@ public class RequestParamFilter implements Filter {
 
 	@Override
 	public int setLevel() {
-		return -1;
+		return 1;
 	}
 
 	@Override

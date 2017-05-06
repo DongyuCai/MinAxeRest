@@ -31,7 +31,7 @@ public class LoginFilter implements Filter{
 
 	@Override
 	public int setLevel() {
-		return 2;
+		return 3;
 	}
 
 	@Override

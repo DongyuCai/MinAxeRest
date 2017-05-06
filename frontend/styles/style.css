@@ -1801,7 +1801,9 @@ _:-ms-lang(x),
   height: 30px;
   margin: auto;
   overflow: auto;
+  /*
   background-image: url(../images/preloader/preloader.empty.png);
+  */
   background-size: 100px 30px; }
 
 /*@noflip*/
@@ -1811,7 +1813,10 @@ _:-ms-lang(x),
   left: 0;
   bottom: 0;
   min-width: 10px;
+  overflow: auto;
+  /*
   background-image: url(../images/preloader/preloader.full.png);
+  */
   background-size: 100px 30px; }
 
 .preloader-hidden {

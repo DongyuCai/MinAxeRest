@@ -25,7 +25,7 @@ import com.jeeba.sys.service.UserRoleService;
 /**
  * 过滤资源权限 caidongyu
  */
-public class ResourceFilter implements Filter {
+public class P3_ResourceFilter implements Filter {
 
 	private boolean onlyAcceptRegistered = false;// 是否只接受注册入库的资源
 
@@ -36,7 +36,7 @@ public class ResourceFilter implements Filter {
 
 	@Override
 	public int setLevel() {
-		return 4;
+		return 3;
 	}
 
 	@Override
@@ -109,7 +109,6 @@ public class ResourceFilter implements Filter {
 	}
 
 	@Override
-	public void doEnd() {
-		
-	}
+	public void doEnd(HttpServletRequest request, HttpServletResponse response, Param param, Handler handler) {}
+
 }

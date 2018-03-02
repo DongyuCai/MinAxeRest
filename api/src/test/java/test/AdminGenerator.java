@@ -1,14 +1,14 @@
-package test;
+ï»¿package test;
 
 import org.axe.util.MD5Util;
 import org.axe.util.StringUtil;
 
 public class AdminGenerator {
 	public static void main(String[] args) {
-		axeµÇÂ¼ÃÜÂë();
+		axeç™»å½•å¯†ç ();
 	}
 	
-	public static void ºóÌ¨¹ÜÀíÔ±ÃÜÂë(){
+	public static void åå°ç®¡ç†å‘˜å¯†ç (){
 		String password = "1234";
 		String salt = StringUtil.getRandomString(8);
 		
@@ -19,7 +19,7 @@ public class AdminGenerator {
 		System.out.println(password);
 	}
 	
-	public static void axeµÇÂ¼ÃÜÂë(){
+	public static void axeç™»å½•å¯†ç (){
 		String signin_id = "axe";
 		String password = "axe";
 		String axe_signin_token = MD5Util.getMD5Code(signin_id+":"+password);

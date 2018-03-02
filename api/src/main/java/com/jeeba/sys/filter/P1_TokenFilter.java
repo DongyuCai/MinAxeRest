@@ -23,8 +23,8 @@ import com.jeeba.sys.service.UserTokenService;
  * 头filter，spring-mvc中的第一个
  * 除了web.xml中的filter外
  */
-public class TokenFilter implements Filter{
-	Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class);
+public class P1_TokenFilter implements Filter{
+	Logger LOGGER = LoggerFactory.getLogger(P1_TokenFilter.class);
 	
 	@Override
 	public void init() {
@@ -32,7 +32,7 @@ public class TokenFilter implements Filter{
 
 	@Override
 	public int setLevel() {
-		return 2;
+		return 1;
 	}
 
 	@Override
@@ -83,8 +83,9 @@ public class TokenFilter implements Filter{
 		return true;
 	}
 
+
 	@Override
-	public void doEnd() {
+	public void doEnd(HttpServletRequest request, HttpServletResponse response, Param param, Handler handler) {
 		UserContext.cleanUser();
 		UserContext.cleanToken();
 	}

@@ -53,7 +53,7 @@ public class LoginRestController {
 	public void code(@RequestParam("codeIndex")String index,HttpServletResponse response) {
 		try {
 			ByteArrayOutputStream output = new ByteArrayOutputStream();
-			String code = drawImg(output);
+//			String code = drawImg(output);
 			//存到redis，60秒过期
 //			redisService.saveCode(index,code);
 			
@@ -65,7 +65,7 @@ public class LoginRestController {
 		}
 	}
 
-	private String drawImg(ByteArrayOutputStream output) {
+	public String drawImg(ByteArrayOutputStream output) {
 		String code = StringUtil.getRandomString(4);
 		int width = 70;
 		int height = 39;

@@ -21,8 +21,8 @@ import com.jeeba.sys.service.UserTokenService;
 /**
  * 用户登录拦截 caidongyu
  */
-public class LoginFilter implements Filter{
-	Logger LOGGER = LoggerFactory.getLogger(LoginFilter.class);
+public class P2_LoginFilter implements Filter{
+	Logger LOGGER = LoggerFactory.getLogger(P2_LoginFilter.class);
 
 	@Override
 	public void init() {
@@ -31,7 +31,7 @@ public class LoginFilter implements Filter{
 
 	@Override
 	public int setLevel() {
-		return 3;
+		return 2;
 	}
 
 	@Override
@@ -72,7 +72,6 @@ public class LoginFilter implements Filter{
 	}
 
 	@Override
-	public void doEnd() {
-		
-	}
+	public void doEnd(HttpServletRequest request, HttpServletResponse response, Param param, Handler handler) {}
+
 }
